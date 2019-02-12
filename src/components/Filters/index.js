@@ -12,15 +12,19 @@ import iconUpperBody from '~/assets/images/icones/upper_body.png';
 import iconYoga from '~/assets/images/icones/yoga.png';
 
 export default class Filters extends Component {
-  state = { activeIcon: '' };
-  
+  constructor(props) {
+    super(props);
+    this.state = { active: true };
+  }
+
   render() {
+    // const active  = this.state;
     return (
       <View style={styles.container}>
-        <FiltersItem imageUrl={iconDance}  />
-        <FiltersItem imageUrl={iconLowerBody}  />
-        <FiltersItem imageUrl={iconUpperBody}  />
-        <FiltersItem imageUrl={iconYoga} active />
+        <FiltersItem imageUrl={iconDance} active={ this.state.active } />
+        <FiltersItem imageUrl={iconLowerBody} active={ this.state.active } />
+        <FiltersItem imageUrl={iconUpperBody} active={ this.state.active } />
+        <FiltersItem imageUrl={iconYoga} active={ this.state.active } />
       </View>
     );
   }
